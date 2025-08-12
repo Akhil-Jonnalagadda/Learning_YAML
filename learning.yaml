@@ -1,0 +1,95 @@
+#YAML= YAML AIN'T MARKUP LANGUAGE
+#A human readable data serialization language used for configuration files and data exchange.
+# key-value pairs
+---
+name: "akhil"
+age: 25
+location: india
+quote: "YAML is great for configuration files"
+active: true
+verified: false
+middle_name: null
+...
+---
+# collections
+-apple
+-banana
+-grapes
+...
+
+---
+#block cities:
+cities:
+ -newdelhi
+ -mumbai   
+#flow
+citi: [newdelhi, mumbai]
+...
+#Datatype int
+zero: !!int 0
+positivenum: !!int 45
+negitivenum: !!int -45
+binarynumber: !!int 0b11001
+octal number: !!int 06574
+hexaNum: !!int 0x45
+commavalue: !!int +540_000
+marks: !!float 56.91
+infinite: !!float .inf
+not a number: .nan
+booleanvalue: !!bool true
+String message: !!str This is a String
+text: !!null Null
+timestamp: indiatime: !!timestamp 2003-03-30T00:00:00 +05:30
+exponential number: 6.203E23
+# Sequence type
+student: !!seq
+  - name: "John"
+    age: 20
+    location: "USA"
+  - name: "Alice"
+    age: 22
+    location: "UK"
+...
+#nested sequence
+-
+ -mango
+ -apple
+
+-
+ -cold
+...
+---
+#maps !!map (key:value pairs are called map)
+# nested mapping(map within a map)
+name: "akhil"
+role: "student"
+age: 25
+role: {age: 25 job: "student"}
+
+names: !!set
+ ?akhil
+ ?hello
+...
+#Dictionary
+people: !!omap
+ -akhil:
+  name: "alex"
+  age: 45
+  height: 678
+  -koustav:
+   name: "alexa"
+   age: 30
+   height: 591
+
+#reusing some properties(anchors)
+likings: &likes
+ fav food: "mango"
+ dislike: "grapes"
+ person1:
+  name: "lucy"
+  <<: *likes
+ person2:
+ <<: *likes
+dislike: "apple"
+  
+#storing data in xml- not human readable
